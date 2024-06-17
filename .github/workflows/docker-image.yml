@@ -45,5 +45,5 @@ jobs:
               docker pull arzu908/cakey:latest
               docker stop cakeybackendtemp_web || true
               docker rm cakeybackendtemp_web || true
-              docker run -d --name cakeybackendtemp_web -p 8002:8000 arzu908/cakey:latest
+              docker run -d --name cakeybackendtemp_web -p 8000:8000 arzu908/cakey:latest
             EOF
