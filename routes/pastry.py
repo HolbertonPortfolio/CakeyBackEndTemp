@@ -48,7 +48,7 @@ def create_pastry(pastry: PastryCreate, db: Session = Depends(get_db)):
     return db_pastry
 
 
-@router.get("/pastries/", response_model=List[PastryList])
+@router.get("/pastries/")
 def read_pastries(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     pastries = db.query(Pastry).offset(skip).limit(limit).all()
     results = []
