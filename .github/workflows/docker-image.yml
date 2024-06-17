@@ -36,14 +36,14 @@ jobs:
         with:
           context: .
           push: true
-          tags: cakey:latest
+          tags: arzu908/cakey:latest
 
       - name: Deploy to server
         run: |
             sshpass -p '${{ secrets.SSH_PASSWORD }}' \
             ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SERVER_IP_ADDRESS }} << 'EOF'
-              docker pull cakey:latest
+              docker pull arzu908/cakey:latest
               docker stop cakeybackendtemp_web || true
               docker rm cakeybackendtemp_web || true
-              docker run -d --name cakeybackendtemp_web -p 8000:8000 cakey:latest
+              docker run -d --name cakeybackendtemp_web -p 8000:8000 arzu908/cakey:latest
             EOF
