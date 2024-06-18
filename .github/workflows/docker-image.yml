@@ -36,7 +36,7 @@ jobs:
             export DOCKER_PASSWORD=${{ secrets.DOCKER_PASSWORD }}
             echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin
             docker pull $IMAGE_NAME
-            cd test
+            cd cakey
             docker compose down || true
             docker compose up -d
             docker image prune -f
